@@ -4,7 +4,7 @@ import streamlit as st
 from openai import OpenAI
 
 # 🔑 Use environment variable for API key
-client = OpenAI(api_key=os.getenv("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"))
+client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 def defang_url(url):
     return url.replace('.', '[.]').replace(':', '[:]')
@@ -182,3 +182,4 @@ if st.sidebar.button("Send"):
 
         st.session_state.chat_messages.append({"sender": "bot", "text": bot_response})
         st.rerun()
+
